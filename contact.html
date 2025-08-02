@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact – Kaushal Pithadia</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h2>Contact Me</h2>
+    <p>Have a question, a project idea, or just want to connect? I’d love to hear from you!</p>
+
+    <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="form-grid">
+      <label>Your Name<input type="text" name="name" required /></label>
+      <label>Your Email<input type="email" name="email" required /></label>
+      <label>Subject<input type="text" name="subject" required /></label>
+      <label class="full-width">Message<textarea name="message" rows="5" required></textarea></label>
+
+      <div data-netlify-recaptcha="true"></div>
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,438 @@
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.site-nav { display: none; }
+.site-nav.open { display: block; }
+@media (min-width: 769px) {
+  .site-nav { display: flex !important; }
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+h3 { font-size: clamp(1rem, 3vw, 1.5rem); }
+
+/* 2.1 Base styles */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 2.2 Hide toggle on desktop */
+.menu-toggle {
+  background: none;
+  border: none;
+  display: none;
+  cursor: pointer;
+}
+
+/* Hamburger icon */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #007acc;
+  position: relative;
+}
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after  { bottom: -8px; }
+
+/* 2.3 Mobile styles */
+@media (max-width: 768px) {
+
+  /* Show toggle button */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Hide nav by default */
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Show nav when toggled */
+  .site-nav.open {
+    display: flex;
+  }
+
+  /* Nav links full-width for easy tap */
+  .site-nav a {
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border-top: 1px solid #eee;
+  }
+  .site-nav a:first-child {
+    border-top: none;
+  }
+}
+
+
+/* Reset & Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
+a { color: #007acc; text-decoration: none; }
+.container { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+/* Header & Nav */
+header, footer { background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+header .container, footer .container { padding: 1rem; }
+nav a { margin: 0 0.5rem; }
+
+/* Headings */
+h1, h2, h3 { margin-bottom: 0.5rem; }
+h2 { padding-bottom: 0.25rem; border-bottom: 2px solid #007acc; margin-bottom: 1rem; }
+
+/* Sections & Lists */
+section, article { margin-bottom: 2rem; }
+ul, ol { margin-left: 1.25rem; margin-bottom: 1rem; }
+
+/* Projects Cards */
+.project {
+  background: #fff; padding: 1rem; border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem;
+}
+
+/* Blog List */
+.post-list { list-style: none; padding: 0; }
+.post-list li { margin-bottom: 1.5rem; }
+.post-list a {
+  display: block; background: #fff; padding: 1rem; border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.post-list time { font-size: 0.9rem; color: #666; }
+
+/* Footer Text */
+footer p { text-align: center; font-size: 0.9rem; color: #666; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav a { display: block; margin: 0.5rem 0; text-align: center; }
+}
+
+main ul {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+main ul li {
+  margin-bottom: 0.5rem;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.profile-card ul {
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: #007acc;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+/* style.css */
+
+/* Container padding */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* PROFILE: side-by-side layout */
+.profile-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-text ul {
+  list-style: disc inside;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* CONTACT: full-width form below */
+.contact-section {
+  margin-top: 3rem;
+}
+
+.contact-section p {
+  margin-bottom: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.form-grid .full-width {
+  grid-column: 1 / -1;
+}
+
+input,
+textarea {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+/* SOCIAL LINKS */
+.social-links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.social-links a {
+  color: #007acc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+/* STACK on small screens */
+@media (max-width: 600px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hang bullets outside and indent wrapped lines */
+.about-list {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin: 1rem 0;
+  padding-left: 1.5rem;       /* space before bullet */
+}
+
+.about-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  text-indent: -0.5em;         /* pull first line back */
+  padding-left: 0.5em;         /* push subsequent lines over */
+}
+
+.container { max-width: 900px; margin: auto; padding: 1rem; }
+
+/* Profile Section: parallel on desktop, stacked on mobile */
+.profile-section,
+#profile {
+  display: flex; gap: 2rem; align-items: flex-start; margin: 2rem 0;
+}
+.profile-image img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+.profile-text .about-list {
+  list-style: disc outside; padding-left: 1.5rem; line-height: 1.6; margin-top: 0.5rem;
+}
+
+/* Projects cards */
+.project { background: #fff; padding: 1rem; border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+
+/* Blog list */
+.post-list { list-style: none; padding: 0; }
+.post-list li { margin-bottom: 1.5rem; }
+.post-list a {
+  display: block; background: #fff; padding: 1rem; border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.post-list time { font-size: 0.9rem; color: #666; }
+
+/* Contact form */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem; }
+.form-grid .full-width { grid-column: 1 / -1; }
+label { display: flex; flex-direction: column; font-weight: bold; }
+input, textarea { padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
+button {
+  margin-top: 1rem; padding: 0.75rem 1.5rem; background: #007acc; color: #fff;
+  border: none; border-radius: 4px; cursor: pointer;
+}
+button:hover { background: #005fa3; }
+
+/* Responsive Stacking */
+@media (max-width: 600px) {
+  .profile-section, #profile { flex-direction: column; align-items: center; text-align: center; }
+  .form-grid { grid-template-columns: 1fr; }
+}
+
+.site-footer {
+  background: #222;
+  color: #eee;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #ccc;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.footer-nav li {
+  display: inline-block;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 1rem;
+  }
+
+  .footer-nav li {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .site-footer .container {
+    flex-direction: column;
+  }
+}
+
+.site-footer a {
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0.5rem;
+}
+
+.site-footer p {
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #bbb;
+}
