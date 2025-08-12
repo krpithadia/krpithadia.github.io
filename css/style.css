@@ -436,3 +436,30 @@ button:hover { background: #005fa3; }
   font-size: 0.9rem;
   color: #bbb;
 }
+
+/* Blog Hero & Author */
+.blog-hero {
+  margin: 2rem 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.blog-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-pic {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Blog Content */
+.blog-content {
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+

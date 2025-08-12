@@ -23,8 +23,19 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       console.warn('Menu toggle or nav not found after injection.');
     }
+
+    // Absolute root paths
+  inject('#site-header', '/assets/includes/header.html', () => {
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.site-nav');
+    if (btn && nav) btn.addEventListener('click', () => nav.classList.toggle('open'));
   });
+  inject('#site-footer', '/assets/includes/footer.html');
+
+  
+  });
+  
 
   // Inject footer as usual
-  inject('#site-footer', 'assets/includes/footer.html');
+//  inject('#site-footer', 'assets/includes/footer.html');
 });
