@@ -17,16 +17,16 @@
         hear from you!
       </p>
 
-      <!--<form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="form-grid">
-      <label>Your Name<input type="text" name="name" required /></label>
-      <label>Your Email<input type="email" name="email" required /></label>
-      <label>Subject<input type="text" name="subject" required /></label>
-      <label class="full-width">Message<textarea name="message" rows="5" required></textarea></label>
+      <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="form-grid">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <input type="text" name="subject" placeholder="Subject "required />
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
 
-      <div data-netlify-recaptcha="true"></div>
-      <button type="submit">Send Message</button>
-    </form>-->
-      <form action="https://formspree.io/f/mqalnkyz" method="POST">
+      <div class="g-recaptcha" data-sitekey="6LccSaYrAAAAAFWwUciXJzFysDOXKB3YdyaUYTlC"></div>
+      <button type="submit">Send</button>
+    </form>
+      <!--<form action="https://formspree.io/f/mqalnkyz" method="POST">
         <input
           type="text"
           name="name"
@@ -41,10 +41,10 @@
         />
         <textarea name="message" placeholder="Your message" required></textarea>
 
-         <!-- v2 checkbox widget -->
+        
         <div class="g-recaptcha" data-sitekey="6LccSaYrAAAAAFWwUciXJzFysDOXKB3YdyaUYTlC"></div>
         <button type="submit">Send</button>
-      </form>
+      </form>-->
 
       <script
         src="https://www.google.com/recaptcha/api.js"
