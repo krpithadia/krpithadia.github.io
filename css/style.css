@@ -481,3 +481,22 @@ body {
       font-size: 1.2em;
       margin-right: 5px;
     }
+
+    .blog-tags {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+}
+.blog-tags a {
+  margin-right: 0.5rem;
+  color: #007acc;
+  text-decoration: none;
+}
+.blog-tags a:hover {
+  text-decoration: underline;
+}
+
+.back-link {
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
