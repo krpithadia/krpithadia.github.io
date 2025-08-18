@@ -6,6 +6,9 @@
     <title>Contact – Kaushal Pithadia</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="config.js"></script>
+    <script defer src="script.js"></script>
+
   </head>
   <body>
     <div id="site-header"></div>
@@ -22,8 +25,7 @@
       <input type="email" name="email" placeholder="Your email" required />
       <input type="text" name="subject" placeholder="Subject "required />
       <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-
-      
+      <div class="g-recaptcha" data-sitekey="{RECAPTCHA_SITE_KEY}"></div>
       <button type="submit">Send</button>
     </form>
       <!--<form action="https://formspree.io/f/mqalnkyz" method="POST">
@@ -44,13 +46,13 @@
         
         
         <button type="submit">Send</button>
-      </form>-->
+      </form>
 
       <script
         src="https://www.google.com/recaptcha/api.js"
         async
         defer
-      ></script>
+      ></script>-->
     </main>
 
     <div id="site-footer"></div>

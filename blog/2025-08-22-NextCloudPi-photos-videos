@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="NextCloudPi: Your Private Photo & Video Cloud on Raspberry Pi">
+  <meta name="description" content="Learn to turn your Raspberry Pi into a self-hosted NextCloudPi media server for private photo and video storage, streaming, and sharing.">
+  <meta name="keywords" content="NextCloudPi, Raspberry Pi, private cloud, media server, photos, videos, self-hosted">
+  <meta name="author" content="Kaushal Pithadia">
+  <link rel="stylesheet" href="/css/style.css" />
+  <title>NextCloudPi: Your Private Photo & Video Cloud on Raspberry Pi</title>
+</head>
+<body>
+  <!-- Injected Header -->
+  <div id="site-header"></div>
+
+  <!-- Blog Hero -->
+  <section class="blog-hero container">
+    <div class="blog-author">
+      <img src="/assets/images/profile.jpg" alt="Kaushal Pithadia" class="author-pic" />
+      <div>
+        <p>
+          <time datetime="2025-08-17">August 17, 2025</time> · by Kaushal Pithadia · ⏱️ 7 min read
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <article class="container">
+    <header>
+      <h1>NextCloudPi: Your Private Photo & Video Cloud on Raspberry Pi</h1>
+    </header>
+
+    <section>
+      <p>Building a dedicated home cloud for your photos and videos is empowering. NextCloudPi transforms a humble Raspberry Pi into a fully featured, self-hosted media server. You keep complete control over your memories, bypass public cloud fees, and ensure privacy. This guide walks you through hardware selection, installation, configuration, and performance tuning—so you can stream and share media effortlessly.</p>
+    </section>
+
+    <section>
+      <h2>Why NextCloudPi on Raspberry Pi?</h2>
+      <ul>
+        <li>Cost-effective: A Raspberry Pi + microSD costs under $75 versus commercial NAS.</li>
+        <li>Privacy first: Data never touches third-party servers.</li>
+        <li>Modular: Install only the apps you need—Photos, Video Player, Calendars, and more.</li>
+        <li>Energy-efficient: Under 5 W power draw, perfect for 24/7 uptime.</li>
+      </ul>
+      <p>Whether you’re an enthusiast or a creative professional, this setup scales easily with external USB drives or network shares.</p>
+    </section>
+
+    <section>
+      <h2>Hardware & Network Requirements</h2>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Component</th>
+            <th>Minimum Spec</th>
+            <th>Recommendation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Raspberry Pi Model</td>
+            <td>3 B+</td>
+            <td>4 GB or 8 GB RAM on Model 4</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>32 GB microSD</td>
+            <td>USB 3 SSD/HDD (500 GB+)</td>
+          </tr>
+          <tr>
+            <td>Power Supply</td>
+            <td>5 V, 2.5 A</td>
+            <td>Official 5 V, 3 A USB-C (Model 4)</td>
+          </tr>
+          <tr>
+            <td>Network</td>
+            <td>Ethernet (preferred)</td>
+            <td>Gigabit Ethernet to router</td>
+          </tr>
+          <tr>
+            <td>Cooling</td>
+            <td>Heatsinks (optional)</td>
+            <td>Case with fan or good airflow</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Use a wired connection to avoid streaming hiccups. For remote access, reserve a static IP or set up dynamic DNS.</p>
+    </section>
+
+    <section>
+      <h2>Initial Raspberry Pi Setup</h2>
+      <ol>
+        <li>Download Raspberry Pi OS Lite and flash to microSD with Raspberry Pi Imager.</li>
+        <li>Enable SSH: place an empty file named <code>ssh</code> in the <code>/boot</code> partition.</li>
+        <li>Insert microSD, connect power + Ethernet, then SSH in:
+          <pre><code>ssh pi@192.168.1.50
+# default password: raspberry</code></pre>
+        </li>
+        <li>Update packages:
+          <pre><code>sudo apt update && sudo apt upgrade -y</code></pre>
+        </li>
+        <li>Change default password:
+          <pre><code>passwd</code></pre>
+        </li>
+      </ol>
+      <p>Your Pi is now ready for NextCloudPi installation.</p>
+    </section>
+
+    <section>
+      <h2>Installing NextCloudPi</h2>
+      <p>NextCloudPi provides an automated installer script. Copy the command block below:</p>
+      
+      <div class="code-snippet">
+        <button class="copy-btn" data-target="install-commands">Copy</button>
+        <pre><code id="install-script">wget https://raw.githubusercontent.com/nextcloud/nextcloudpi/master/install.sh
+bash install.sh</code></pre>
+
+      </div>
+
+      <p>When prompted, select external storage for your media library. On completion, note the URL (e.g., <code>https://192.168.1.50:4443</code>) to access the web UI.</p>
+    </section>
+
+ 
+
+    <section>
+      <h2>Configuring Photo & Video Apps</h2>
+      <ol>
+        <li>Log in with your admin credentials.</li>
+        <li>Under <strong>Apps &gt; Multimedia</strong>, enable <em>Nextcloud Photos</em> and <em>Video Player</em>.</li>
+        <li>Create a <code>Media</code> folder in <strong>Files</strong>, with subfolders <code>Photos</code> and <code>Videos</code>.</li>
+        <li>Drag-and-drop sample files; thumbnails generate automatically.</li>
+      </ol>
+      <p>For mobile uploads, install the Nextcloud mobile app and connect via your static IP or dynamic DNS hostname.</p>
+    </section>
+
+    <section>
+      <h2>Securing Your Media Cloud</h2>
+      <ul>
+        <li>Enable HTTPS via Let’s Encrypt in the NextCloudPi dashboard.</li>
+        <li>Activate Fail2ban under <strong>NCPCONFIG &gt; security</strong> for brute-force protection.</li>
+        <li>Schedule daily backups of database & data to an external drive or cloud bucket.</li>
+        <li>Enforce two-factor authentication in <strong>Settings &gt; Security</strong>.</li>
+      </ul>
+      <p>This combination of encryption, bans, and backups keeps your assets safe.</p>
+    </section>
+
+    <section>
+      <h2>Performance Tuning & Scaling</h2>
+      <ul>
+        <li>Adjust <code>pm.max_children</code> in PHP-FPM for concurrent uploads.</li>
+        <li>Enable Redis caching under <strong>NCPCONFIG &gt; performance</strong>.</li>
+        <li>Use a USB 3 SSD rather than microSD for faster I/O.</li>
+        <li>Switch to system cron for optimized background tasks.</li>
+      </ul>
+      <p>If your library exceeds 1 TB, mount an NFS share under <code>/media</code> for scalable storage.</p>
+    </section>
+
+    <section>
+      <h2>Tips for an Engaging Photo & Video Experience</h2>
+      <ul>
+        <li>Organize albums by date or event for intuitive browsing.</li>
+        <li>Use tags and metadata to group related photos.</li>
+        <li>Share with expiring, password-protected public links.</li>
+        <li>Automate desktop client sync for new camera imports.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Conclusion &amp; Next Steps</h2>
+      <p>You now have a fully self-hosted photo & video cloud on Raspberry Pi. This approach maximizes privacy, minimizes cost, and gives you granular control. To expand:</p>
+      <ol>
+        <li>Install Collabora Online for in-browser document editing.</li>
+        <li>Integrate with Home Assistant to trigger automations.</li>
+        <li>Automate offsite backups via <code>rclone</code>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Beyond the Basics</h2>
+      <ul>
+        <li>Publish web-facing galleries via WebDAV sync.</li>
+        <li>Use PhotoPrism alongside NextCloudPi for AI-driven tagging.</li>
+        <li>Set your Pi up as a portable hotspot media server on the go.</li>
+      </ul>
+    </section>
+  </article>
+
+  <!-- Hashtags -->
+  <div class="blog-tags container">
+    <strong>Tags:</strong>
+    <a href="/blog.html#nextcloudpi">#NextCloudPi</a>
+    <a href="/blog.html#raspberrypi">#RaspberryPi</a>
+    <a href="/blog.html#privacy">#Privacy</a>
+    <a href="/blog.html#mediaserver">#MediaServer</a>
+    <a href="/blog.html#homelab">#HomeLab</a>
+    <a href="/blog.html#KaushalWrites">#KaushalWrites</a>
+  </div>
+
+  <p class="back-link container">
+    <a href="/blog.html">← Back to Blog Index</a>
+  </p>
+
+  <footer>
+    <!-- Injected Footer -->
+    <div id="site-footer"></div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
