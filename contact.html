@@ -8,6 +8,15 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="config.js"></script>
     <script defer src="script.js"></script>
+    <!-- contact.html -->
+    <script>
+      fetch('https://script.google.com/macros/s/.../exec')
+        .then(r => r.json())
+        .then(cfg => {
+          grecaptcha.render('recaptcha-container', { sitekey: cfg.siteKey });
+        });
+    </script>
+    <div id="recaptcha-container"></div>
 
   </head>
   <body>
