@@ -4,13 +4,6 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
   const status = document.getElementById('status');
   status.textContent = '';
 
-  const formElement = document.getElementById('contact-form');
-  const formData = new FormData(formElement);
-  formData.append('token', grecaptcha.getResponse()); // add the captcha
-
-
-
-
   const token = grecaptcha.getResponse();
   if (!token) {
     status.textContent = 'Please complete the reCAPTCHA.';
@@ -22,8 +15,6 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
     email: form.email.value,
     message: form.message.value,
     token
-
-  
   };
 
   try {
@@ -43,8 +34,4 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
   } catch (err) {
     status.textContent = 'Error: ' + err.message;
   }
-
-  const resp = await fetch(CONFIG.APPS_SCRIPT_URL, {
-  method: 'POST',
-  body: formData
 });
