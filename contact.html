@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Contact – Kaushal Pithadia</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="config.js"></script>
-    <script defer src="script.js"></script>
-    <!-- contact.html -->
-    <script>
-      fetch('https://script.google.com/macros/s/.../exec')
-        .then(r => r.json())
-        .then(cfg => {
-          grecaptcha.render('recaptcha-container', { sitekey: cfg.siteKey });
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – Kaushal Pithadia</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="config.js"></script>
+  <script defer src="script.js"></script>
+
+
+	
+	
+  <!-- 1️⃣ CONFIG: your site key and Apps Script URL -->
+  <script>
+    const CONFIG = {
+      RECAPTCHA_SITE_KEY: '6LevbaorAAAAANj6LiwRetF77FUTUFfpnNj638_C',
+      WEBAPP_URL:      'https://script.google.com/macros/s/AKfycbzqO2ja2u8moARFehf7J1fi6YPHbvz_BfmuAa_qVnAn9DTUMmzFgPAmQGwJKEyUFZWl/exec'
+    };
+  </script>
+
+  <!-- 2️⃣ RECAPTCHA SDK -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LevbaorAAAAANj6LiwRetF77FUTUFfpnNj638_C"></script>
+
+  <!-- 3️⃣ MAIN & SCRIPT LOGIC -->
+  <script>
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+
+      try {
+        // Get token
+        const token = await grecaptcha.execute(CONFIG.RECAPTCHA_SITE_KEY, { action: 'contact' });
+
+        // Build payload
+        const payload = {
+          name:    formData.get('name'),
+          email:   formData.get('email'),
+          message: formData.get('message'),
+          token:   token
+        };
+
+        // Send to Apps Script
+        const resp = await fetch(CONFIG.WEBAPP_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
         });
-    </script>
-    <div id="recaptcha-container"></div>
 
-  </head>
-  <body>
-    <div id="site-header"></div>
+        const result = await resp.json();
+        if (result.success) {
+          alert('✅ Message sent!');
+          form.reset();
+        } else {
+          alert('❌ Error: ' + result.error);
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ Submission failed. Check console for details.');
+      }
+    }
 
-    <main class="container">
-      <h2>Contact Me</h2>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('contact-form').addEventListener('submit', handleSubmit);
+    });
+  </script>
+
+</head>
+
+<body>
+  <div id="site-header"></div>
+  <main class="container">
       <p>
         Have a question, a project idea, or just want to connect? I’d love to
         hear from you!
       </p>
 
       <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="form-grid">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <input type="text" name="subject" placeholder="Subject "required />
-      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
-      <div class="g-recaptcha" data-sitekey="6LevbaorAAAAANj6LiwRetF77FUTUFfpnNj638_C"></div>
-      <button type="submit">Send</button>
-    </form>
-      <!--<form action="https://formspree.io/f/mqalnkyz" method="POST">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          required
-        />
-        <input
-          type="email"
-          name="_replyto"
-          placeholder="yourmemail@gmail.com"
-          required
-        />
-        <textarea name="message" placeholder="Your message" required></textarea>
-
-        
-        
-        <button type="submit">Send</button>
-      </form>
-
-      <script
-        src="https://www.google.com/recaptcha/api.js"
-        async
-        defer
-      ></script>-->
+		<input type="text" name="name" placeholder="Your name" required />
+		<input type="email" name="email" placeholder="Your email" required />
+		<input type="text" name="subject" placeholder="Subject "required />
+		<textarea name="message" rows="5" placeholder="Your message" required></textarea>
+		<div class="g-recaptcha" data-sitekey="6LevbaorAAAAANj6LiwRetF77FUTUFfpnNj638_C"></div>
+		<button type="submit">Send</button>
+	  </form>
     </main>
 
     <div id="site-footer"></div>
     <script src="js/main.js"></script>
-  </body>
+</body>
 </html>

@@ -34,4 +34,18 @@ document.getElementById('contact-form').addEventListener('submit', async e => {
   } catch (err) {
     status.textContent = 'Error: ' + err.message;
   }
+    // in script.js, inside your form submit handler
+    const formElement = document.getElementById('contact-form');
+    const formData = new FormData(formElement);
+    formData.append('token', grecaptcha.getResponse()); // add the captcha
+
+    const resp = await fetch(CONFIG.APPS_SCRIPT_URL, {
+    method: 'POST',
+    body: formData
+    });
+
+    const result = await resp.json();
+    // …handle success / error…
+
+
 });
