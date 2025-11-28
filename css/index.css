@@ -391,6 +391,21 @@ ul {
     }
 }
 
+/* -------------------------------------------------
+   Mobile‑friendly logo
+   ------------------------------------------------- */
+@media (max-width: 480px) {
+    .logo {
+        /* Reduce the font size so the whole text fits */
+        font-size: 1.2rem;
+        /* adjust as needed */
+        /* Allow the text to wrap instead of being clipped */
+        white-space: normal;
+        /* Give a little padding so it doesn’t touch the edges */
+        padding: 0 0.5rem;
+    }
+}
+
 /* Animations */
 .fade-in {
     opacity: 0;
@@ -402,6 +417,7 @@ ul {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* Certifications Section */
 .cert-grid {
     display: grid;
@@ -496,7 +512,8 @@ ul {
     line-height: 1.8;
 }
 
-.blog-body ul, .blog-body ol {
+.blog-body ul,
+.blog-body ol {
     margin-bottom: var(--spacing-md);
     padding-left: var(--spacing-md);
 }
