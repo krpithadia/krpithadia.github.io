@@ -365,7 +365,7 @@ ul {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 5rem;
@@ -376,8 +376,9 @@ ul {
     }
 
     .site-header .container {
-        flex-direction: column;
-        gap: 1rem;
+        /* flex-direction: column;
+        gap: 1rem;*/
+        padding: 0 var(--spacing-sm)
     }
 
     .main-nav ul {
@@ -402,6 +403,7 @@ ul {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* Certifications Section */
 .cert-grid {
     display: grid;
@@ -496,7 +498,8 @@ ul {
     line-height: 1.8;
 }
 
-.blog-body ul, .blog-body ol {
+.blog-body ul,
+.blog-body ol {
     margin-bottom: var(--spacing-md);
     padding-left: var(--spacing-md);
 }
