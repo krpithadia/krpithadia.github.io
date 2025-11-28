@@ -1,6 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Portfolio loaded');
 
+    // Burger Menu Toggle
+    const burgerMenu = document.querySelector('.burger-menu');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (burgerMenu && mainNav) {
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const navLinks = mainNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                mainNav.classList.remove('active');
+            });
+        });
+    }
+
     // Scroll Animations
     const observerOptions = {
         threshold: 0.1

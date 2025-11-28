@@ -93,6 +93,39 @@ ul {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--color-primary);
+    z-index: 1001;
+}
+
+/* Burger Menu Button */
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.burger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 .main-nav ul {
@@ -103,6 +136,7 @@ ul {
 .main-nav a:hover {
     color: var(--color-primary);
 }
+
 
 /* Hero Section */
 .hero {
@@ -365,7 +399,7 @@ ul {
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     :root {
         --spacing-lg: 3rem;
         --spacing-xl: 5rem;
@@ -375,16 +409,47 @@ ul {
         font-size: 2.5rem;
     }
 
-    .site-header .container {
-        /* flex-direction: column;
-        gap: 1rem;*/
-        padding: 0 var(--spacing-sm)
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Show burger menu on mobile */
+    .burger-menu {
+        display: flex;
+    }
+
+    /* Mobile navigation */
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--color-surface);
+        border-left: 1px solid var(--color-border);
+        transition: right 0.3s ease;
+        padding-top: var(--header-height);
+    }
+
+    .main-nav.active {
+        right: 0;
     }
 
     .main-nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        gap: 0;
+        padding: var(--spacing-md);
+    }
+
+    .main-nav li {
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .main-nav a {
+        display: block;
+        padding: var(--spacing-sm) 0;
+        font-size: 1.1rem;
     }
 
     .section-title {
