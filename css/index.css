@@ -76,6 +76,7 @@ ul {
     left: 0;
     width: 100%;
     background-color: rgba(15, 23, 42, 0.8);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--color-border);
@@ -574,6 +575,19 @@ ul {
     list-style-type: disc;
 }
 
-.blog-body ol li {
-    list-style-type: decimal;
+.blog-tags {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-border);
+}
+
+.blog-tags span {
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+    background-color: rgba(129, 140, 248, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.5rem;
 }
