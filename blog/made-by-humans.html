@@ -52,8 +52,16 @@
                     <p class="blog-subtitle">Rediscovering the value of human creativity in an era of automation.</p>
                 </header>
 
+                <div class="blog-hero-image fade-in">
+                    <img src="../assets/images/made-by-humans.jpg" alt="Handcrafted pottery with 'Made by Humans' tag"
+                        class="featured-image">
+                    <p class="image-caption">Authenticity at your fingertips: A handcrafted mug bearing the "Made by
+                        Humans" mark.</p>
+                </div>
+
                 <div class="blog-body">
-                    <p>When the human of a factory floor is replaced by the gentle clink of a hand‑crafted tool, a quiet
+                    <p class="fade-in">When the hum of a factory floor is replaced by the gentle clink of a hand‑crafted
+                        tool, a quiet
                         revolution begins. The promise of a future where every item carries a story, a touch, a
                         heartbeat is more than a marketing slogan – it is a cultural shift that invites us to rediscover
                         the value of human creativity. 🌱</p>
@@ -98,9 +106,28 @@
                         stand as a badge of honor, a testament to the harmonious blend of technology and humanity that
                         defines responsible innovation. 🚀</p>
 
-                    <p>What do you think: will you seek out “Made by Humans” products in the future?</p>
+                    <p class="fade-in">What do you think: will you seek out “Made by Humans” products in the future?</p>
 
-                    <div class="blog-tags">
+                    <div class="interactive-reflection fade-in">
+                        <button id="reveal-reflection" class="btn btn-secondary">Share Your Thoughts</button>
+                        <div id="reflection-content" class="reflection-box hidden">
+                            <h3>A Moment to Reflect</h3>
+                            <p>As we move towards 2030, which handcrafted item in your life do you value the most? Is it
+                                the story behind it, or the person who made it?</p>
+                            <label for="reflection-input">Your thought:</label>
+                            <textarea id="reflection-input" placeholder="Type your reflection here..."></textarea>
+                            <button id="submit-reflection" class="btn btn-primary">Save Reflection</button>
+                            <p id="saved-msg" class="hidden">Thank you for sharing your perspective! ✨</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-footer-actions fade-in">
+                        <button class="like-button" id="like-post">
+                            <span class="heart">❤</span> <span id="like-count">12</span> Likes
+                        </button>
+                    </div>
+
+                    <div class="blog-tags fade-in">
                         <span>#MadeByHumans</span> <span>#HumanTouch</span> <span>#Sustainability</span>
                         <span>#QualityMatters</span> <span>#Craftsmanship</span> <span>#FutureOfProduction</span>
                         <span>#AI</span> <span>#Automation</span> <span>#Technology</span>
@@ -119,6 +146,45 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script>
+        // Interactive Logic
+        document.getElementById('reveal-reflection').addEventListener('click', function () {
+            const content = document.getElementById('reflection-content');
+            content.classList.toggle('hidden');
+            this.textContent = content.classList.contains('hidden') ? 'Share Your Thoughts' : 'Close Reflection';
+        });
+
+        document.getElementById('submit-reflection').addEventListener('click', function () {
+            const input = document.getElementById('reflection-input');
+            if (input.value.trim()) {
+                document.getElementById('saved-msg').classList.remove('hidden');
+                input.value = '';
+                setTimeout(() => {
+                    document.getElementById('saved-msg').classList.add('hidden');
+                }, 3000);
+            }
+        });
+
+        let likes = 12;
+        document.getElementById('like-post').addEventListener('click', function () {
+            likes++;
+            document.getElementById('like-count').textContent = likes;
+            this.classList.add('liked');
+            this.style.transform = 'scale(1.2)';
+            setTimeout(() => this.style.transform = 'scale(1)', 200);
+        });
+
+        // Simple Fade-in Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>
