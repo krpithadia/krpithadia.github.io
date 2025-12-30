@@ -7,6 +7,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://krpithadia.com/blog/right-to-repair.html</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://krpithadia.com/blog/made-by-humans.html</loc>
     <lastmod>2025-12-30</lastmod>
     <changefreq>monthly</changefreq>
