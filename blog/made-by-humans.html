@@ -187,45 +187,7 @@
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-        // Interactive Logic
-        document.getElementById('reveal-reflection').addEventListener('click', function () {
-            const content = document.getElementById('reflection-content');
-            content.classList.toggle('hidden');
-            this.textContent = content.classList.contains('hidden') ? 'Share Your Thoughts' : 'Close Reflection';
-        });
-
-        document.getElementById('submit-reflection').addEventListener('click', function () {
-            const input = document.getElementById('reflection-input');
-            if (input.value.trim()) {
-                document.getElementById('saved-msg').classList.remove('hidden');
-                input.value = '';
-                setTimeout(() => {
-                    document.getElementById('saved-msg').classList.add('hidden');
-                }, 3000);
-            }
-        });
-
-        let likes = 12;
-        document.getElementById('like-post').addEventListener('click', function () {
-            likes++;
-            document.getElementById('like-count').textContent = likes;
-            this.classList.add('liked');
-            this.style.transform = 'scale(1.2)';
-            setTimeout(() => this.style.transform = 'scale(1)', 200);
-        });
-
-        // Simple Fade-in Observer
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-    </script>
+    <script src="../js/blog-interactions.js"></script>
 </body>
 
 </html>

@@ -98,7 +98,8 @@
                 </header>
 
                 <div class="blog-body">
-                    <p>Imagine standing on a field, the hum of a tractor in the distance, and knowing you can fix it
+                    <p class="fade-in">Imagine standing on a field, the hum of a tractor in the distance, and knowing
+                        you can fix it
                         yourself. The right to repair movement has turned that imagination into a growing reality,
                         especially as farmers and hobbyists discover that the AI‑powered machines of tomorrow can be
                         tinker‑friendly. 🚜 The promise is simple yet powerful: give consumers the tools, parts, and
@@ -137,7 +138,26 @@
 
                     <p>What steps do you think should be taken to balance innovation with consumer repair rights?</p>
 
-                    <div class="blog-tags">
+                    <div class="interactive-reflection fade-in">
+                        <button id="reveal-reflection" class="btn btn-secondary">Share Your Thoughts</button>
+                        <div id="reflection-content" class="reflection-box hidden">
+                            <h3>A Moment to Reflect</h3>
+                            <p>Do you believe you should have the absolute right to repair the products you own, even if
+                                it involves proprietary software?</p>
+                            <label for="reflection-input">Your thought:</label>
+                            <textarea id="reflection-input" placeholder="Type your reflection here..."></textarea>
+                            <button id="submit-reflection" class="btn btn-primary">Save Reflection</button>
+                            <p id="saved-msg" class="hidden">Thank you for sharing your perspective! ✨</p>
+                        </div>
+                    </div>
+
+                    <div class="blog-footer-actions fade-in">
+                        <button class="like-button" id="like-post">
+                            <span class="heart">❤</span> <span id="like-count">8</span> Likes
+                        </button>
+                    </div>
+
+                    <div class="blog-tags fade-in">
                         <span>#RightToRepair</span> <span>#Sustainability</span> <span>#AITractors</span>
                         <span>#Innovation</span> <span>#FarmTech</span> <span>#KaushalWrites</span>
                     </div>
@@ -153,6 +173,7 @@
     </footer>
 
     <script src="../js/main.js"></script>
+    <script src="../js/blog-interactions.js"></script>
 </body>
 
 </html>
