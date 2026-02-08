@@ -9,6 +9,15 @@
         content="Personal portfolio of Kaushal R. Pithadia. Principal Consultant specializing in ERP, BI, and ECM with 20+ years of experience in enterprise digital transformation.">
     <link rel="canonical" href="https://krpithadia.com/">
 
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; object-src 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=()">
+
+    <!-- Security Check (Must load first) -->
+    <script src="js/security-challenge.js"></script>
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://krpithadia.com/">
@@ -57,14 +66,7 @@
     }
     </script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5XEWY0K61M"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'G-5XEWY0K61M');
-    </script>
 </head>
 
 <body>
@@ -365,6 +367,7 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>
