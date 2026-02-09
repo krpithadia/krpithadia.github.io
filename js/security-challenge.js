@@ -36,13 +36,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show Challenge Logic
     const _0x4d = () => {
         // Math Logic: a + b = c
-        // Ranges: 5-50, 5-49 -> Sum: 10-99
+        // Easy Mode: 2-digit (10-50) + 1-digit (1-9)
         let _a, _b, _c;
-        do {
-            _a = Math.floor(Math.random() * 46) + 5;
-            _b = Math.floor(Math.random() * 45) + 5;
-            _c = _a + _b;
-        } while (_c < 10 || _c > 99);
+        _a = Math.floor(Math.random() * 41) + 10; // 10 to 50
+        _b = Math.floor(Math.random() * 9) + 1;   // 1 to 9
+        _c = _a + _b;
 
         // Honeypot Field (Hidden from humans)
         const _hp = `<input type="text" id="${_0x2b}" class="hp-field" autocomplete="off" tabindex="-1">`;
