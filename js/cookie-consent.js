@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', html);
-        // Prevent scrolling while modal is open
-        document.body.style.overflow = 'hidden';
+        document.body.insertAdjacentHTML('beforeend', html);
+        // Page remains scrollable (Non-blocking)
         attachEventListeners();
     };
 
