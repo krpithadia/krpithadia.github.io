@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         document.body.insertAdjacentHTML('beforeend', html);
-        document.body.insertAdjacentHTML('beforeend', html);
         // Page remains scrollable (Non-blocking)
         attachEventListeners();
     };
