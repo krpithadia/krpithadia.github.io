@@ -1,34 +1,63 @@
+/*
+ * Security Challenge - Obfuscated & Hardened
+ * Contains Anti-Bot logic.
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    const SECURITY_KEY = 'security_verified';
+    // Obfuscated Variable Names
+    const _0x1a = 'security_verified'; // Storage Key
+    const _0x2b = 'hp_field_check';    // Honeypot ID part
 
-    // Check if user is already verified in this session
-    const checkSecurity = () => {
-        const verified = sessionStorage.getItem(SECURITY_KEY);
-        if (!verified) {
-            showChallenge();
+    // Bot Whitelist (SEO & AI Friendly)
+    const _botCheck = () => {
+        const ua = navigator.userAgent.toLowerCase();
+        const bots = [
+            'googlebot', 'bingbot', 'slurp', 'duckduckbot', 'baidu', 'yandex', // Search Engines
+            'twitterbot', 'facebookexternalhit', 'linkedinbot', 'pinterest', 'slackbot', // Social
+            'whatsapp', 'telegrambot', 'discordbot', // Messaging
+            'gptbot', 'chatgpt-user', 'openai', 'anthropic', 'claude', 'perplexity', 'ccbot' // AI
+        ];
+        return bots.some(bot => ua.includes(bot));
+    };
+
+    // Check Verification
+    const _0x3c = () => {
+        // 1. Allow Bots (Bypass)
+        if (_botCheck()) {
+            console.log('Security: Authorized Bot Detected. Granting Access.');
+            return;
+        }
+
+        // 2. Check Human Session
+        if (!sessionStorage.getItem(_0x1a)) {
+            _0x4d(); // Show Challenge
         }
     };
 
-    const showChallenge = () => {
-        // Generate random math problem (Goal: 2-digit result)
-        // num1: 5-50, num2: 5-49 => Sum: 10-99
-        let num1, num2, sum;
+    // Show Challenge Logic
+    const _0x4d = () => {
+        // Math Logic: a + b = c
+        // Ranges: 5-50, 5-49 -> Sum: 10-99
+        let _a, _b, _c;
         do {
-            num1 = Math.floor(Math.random() * 46) + 5;
-            num2 = Math.floor(Math.random() * 45) + 5;
-            sum = num1 + num2;
-        } while (sum < 10 || sum > 99); // Ensure strictly 2 digits
+            _a = Math.floor(Math.random() * 46) + 5;
+            _b = Math.floor(Math.random() * 45) + 5;
+            _c = _a + _b;
+        } while (_c < 10 || _c > 99);
+
+        // Honeypot Field (Hidden from humans)
+        const _hp = `<input type="text" id="${_0x2b}" class="hp-field" autocomplete="off" tabindex="-1">`;
 
         const html = `
             <div id="security-overlay" class="security-overlay">
                 <div class="security-modal">
+                    ${_hp} 
                     <div class="security-header">
                         <h2>Security Check</h2>
                         <p>Please solve this math problem to access the website.</p>
                     </div>
                     <div class="security-body">
                         <div class="math-problem">
-                            <span id="num1">${num1}</span> + <span id="num2">${num2}</span> = ?
+                            <span id="v1">${_a}</span> + <span id="v2">${_b}</span> = ?
                         </div>
                         <div class="input-group">
                             <input type="number" id="security-input" placeholder="??" maxlength="2" inputmode="numeric">
@@ -42,37 +71,45 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.insertAdjacentHTML('beforeend', html);
         document.body.style.overflow = 'hidden';
 
-        const submitBtn = document.getElementById('security-submit');
-        const input = document.getElementById('security-input');
-        const errorMsg = document.getElementById('security-error');
+        const _btn = document.getElementById('security-submit');
+        const _in = document.getElementById('security-input');
+        const _err = document.getElementById('security-error');
+        const _trap = document.getElementById(_0x2b);
 
-        const verify = () => {
-            if (parseInt(input.value) === sum) {
+        const _v = () => {
+            // 1. Honeypot Check (Bot Trap)
+            if (_trap.value.length > 0) {
+                // Determine it's a bot -> Infinite Loop / Block
+                alert('Security Violation: Automated Access Detected.');
+                return;
+            }
+
+            // 2. Logic Check
+            // Use indirect comparison
+            if ((parseInt(_in.value) ^ _c) === 0) {
                 // Correct
-                sessionStorage.setItem(SECURITY_KEY, 'true');
+                sessionStorage.setItem(_0x1a, btoa('verified_' + Date.now())); // Store slightly obfuscated value
                 document.getElementById('security-overlay').remove();
                 document.body.style.overflow = '';
             } else {
                 // Incorrect
-                errorMsg.classList.remove('hidden');
-                input.value = '';
-                input.focus();
+                _err.classList.remove('hidden');
+                _in.value = '';
+                _in.focus();
 
-                // Shake animation
-                const modal = document.querySelector('.security-modal');
-                modal.classList.add('shake');
-                setTimeout(() => modal.classList.remove('shake'), 500);
+                const m = document.querySelector('.security-modal');
+                m.classList.add('shake');
+                setTimeout(() => m.classList.remove('shake'), 500);
             }
         };
 
-        submitBtn.addEventListener('click', verify);
-        input.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') verify();
+        _btn.addEventListener('click', _v);
+        _in.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') _v();
         });
 
-        // Focus input automatically
-        setTimeout(() => input.focus(), 100);
+        setTimeout(() => _in.focus(), 100);
     };
 
-    checkSecurity();
+    _0x3c();
 });

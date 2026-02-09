@@ -887,6 +887,15 @@ input:disabled+.slider {
     padding: var(--spacing-md);
 }
 
+/* Honeypot Field (Bot Trap) - Visually Hidden */
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    pointer-events: none;
+}
+
 .security-modal {
     background-color: var(--color-surface);
     padding: var(--spacing-lg);
