@@ -49,4 +49,38 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+
+    // Blog Load More Logic
+    const blogCards = document.querySelectorAll('.blog-card');
+    const loadMoreBtn = document.getElementById('load-more-blogs');
+    const MAX_VISIBLE_BLOGS = 9;
+
+    if (blogCards.length > 0 && loadMoreBtn) {
+        // Initially hide blogs beyond the limit
+        blogCards.forEach((card, index) => {
+            if (index >= MAX_VISIBLE_BLOGS) {
+                card.classList.add('hidden');
+                card.classList.remove('fade-in'); // Prevent intersection observer from interfering when hidden
+            }
+        });
+
+        // Hide the button if there are not enough blogs
+        if (blogCards.length <= MAX_VISIBLE_BLOGS) {
+            loadMoreBtn.classList.add('hidden');
+        }
+
+        loadMoreBtn.addEventListener('click', () => {
+            blogCards.forEach(card => {
+                if (card.classList.contains('hidden')) {
+                    card.classList.remove('hidden');
+                    // Add a small delay for the fade-in effect to trigger after display is restored
+                    setTimeout(() => {
+                        card.classList.add('fade-in');
+                        card.classList.add('visible'); // Directly mark as visible since it was already in viewport
+                    }, 50);
+                }
+            });
+            loadMoreBtn.classList.add('hidden');
+        });
+    }
 });
