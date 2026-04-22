@@ -2,8 +2,10 @@ name: Publish Scheduled Blogs
 
 on:
   schedule:
-    # Runs at 02:30 UTC every day (08:00 AM IST)
-    - cron: '30 2 * * *'
+    # Main run: 02:23 UTC every day (~07:53 AM IST) - odd minutes are processed more reliably
+    - cron: '23 2 * * *'
+    # Fallback run: 04:17 UTC (~09:47 AM IST) in case the first one is delayed
+    - cron: '17 4 * * *'
   workflow_dispatch: # Allows manual trigger from the Actions tab
 
 jobs:
