@@ -1132,3 +1132,28 @@ input:disabled+.slider {
         transform: translate3d(4px, 0, 0);
     }
 }
+
+/* Blog Sources */
+.blog-sources {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.blog-sources h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-muted);
+}
+
+.blog-sources ol {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    padding-left: 1.25rem;
+    line-height: 1.8;
+}
+
+.blog-sources a {
+    color: inherit;
+}
