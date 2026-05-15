@@ -31,12 +31,13 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
     font-family: var(--font-body);
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 h1,
@@ -440,18 +441,19 @@ ul {
     .main-nav {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
+        transform: translateX(100%);
         width: 70%;
         max-width: 300px;
         height: 100vh;
         background-color: var(--color-surface);
         border-left: 1px solid var(--color-border);
-        transition: right 0.3s ease;
+        transition: transform 0.3s ease;
         padding-top: var(--header-height);
     }
 
     .main-nav.active {
-        right: 0;
+        transform: translateX(0);
     }
 
     .main-nav ul {

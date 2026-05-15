@@ -21,10 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Animations
     const observerOptions = {
         threshold: 0.1
     };
+    
+    // Fix for mobile where tall sections can't reach 10% threshold
+    if (window.innerHeight < 800) {
+        observerOptions.threshold = 0;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
