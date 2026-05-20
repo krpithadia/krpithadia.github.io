@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Carousel: Future of Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.5);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        /* Each slide is 1080x1080px (Square), ideal for LinkedIn */
+        .slide {
+            width: 1080px;
+            height: 1080px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            position: relative;
+            box-sizing: border-box;
+            padding: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            /* This ensures page breaks happen perfectly when printing to PDF */
+            page-break-after: always;
+        }
+
+        /* Subtle background glow effect */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(56,189,248,0.05) 0%, rgba(11,17,32,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            z-index: 1;
+        }
+
+        .slide-number {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-muted);
+            z-index: 1;
+        }
+
+        .author {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-muted);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h1 {
+            font-size: 90px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0 0 40px 0;
+            color: var(--text-main);
+        }
+
+        h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        p {
+            font-size: 45px;
+            line-height: 1.5;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .icon {
+            font-size: 120px;
+            margin-bottom: 40px;
+        }
+
+        /* Print Specifics for PDF Export */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+                gap: 0;
+            }
+            .slide {
+                box-shadow: none;
+                margin: 0;
+            }
+            @page {
+                size: 1080px 1080px;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Cover -->
+    <div class="slide">
+        <div class="content">
+            <h1>The Future of Work: Which jobs are <span>safe</span> from AI? 🤖</h1>
+            <p>While automation is reshaping the workforce, the McKinsey Global Institute reveals that uniquely human skills are our strongest asset.</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">01</div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide">
+        <div class="content">
+            <div class="icon">🩺</div>
+            <h1>Healthcare Professionals</h1>
+            <p>Doctors, nurses, and care workers rely on <strong>empathy, bedside manner, and complex problem-solving</strong>. These are profoundly human traits that algorithms cannot replicate.</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">02</div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide">
+        <div class="content">
+            <div class="icon">📚</div>
+            <h1>Teachers & Educators</h1>
+            <p>Teaching is not just about transferring data. It requires <strong>patience, emotional intelligence, and the ability to mentor</strong> a student effectively.</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">03</div>
+    </div>
+
+    <!-- Slide 4 -->
+    <div class="slide">
+        <div class="content">
+            <div class="icon">🎨</div>
+            <h1>Artists & Creatives</h1>
+            <p>While AI can generate images and text, true art connects human experiences. Jobs rooted in <strong>imagination, originality, and storytelling</strong> remain distinctly ours.</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">04</div>
+    </div>
+
+    <!-- Slide 5 -->
+    <div class="slide">
+        <div class="content">
+            <div class="icon">🛠️</div>
+            <h1>Skilled Tradespeople</h1>
+            <p>Electricians, plumbers, and carpenters navigate unpredictable physical environments. This requires <strong>manual dexterity and critical thinking</strong> that robots haven't mastered.</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">05</div>
+    </div>
+
+    <!-- Slide 6: Outro -->
+    <div class="slide" style="align-items: center; text-align: center; padding: 0 150px;">
+        <div class="content">
+            <h1 style="font-size: 70px;">The goal isn't to compete with AI, but to <span>adapt</span>.</h1>
+            <p style="margin-top: 40px;">How are you developing your uniquely human skills for the future?</p>
+            <p style="margin-top: 60px; font-weight: 600; color: var(--text-main); font-size: 35px;">Let me know in the comments! 👇</p>
+        </div>
+        <div class="author">@kaushalpithadia</div>
+        <div class="slide-number">06</div>
+    </div>
+
+</body>
+</html>
