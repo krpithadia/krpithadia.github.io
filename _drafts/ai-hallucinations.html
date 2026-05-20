@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hallucinations: A funny (and scary) look at why models still lie to us | Kaushal Pithadia</title>
+    <meta name="description"
+        content="Explore the phenomenon of AI hallucinations, why models generate false information with confidence, and the real-world consequences in healthcare, aviation, and translation.">
+    
+    <!-- CRITICAL: Publish Date for the automation script -->
+    <meta name="publish-date" content="2026-05-27">
+
+    <link rel="canonical" href="https://krpithadia.com/blog/ai-hallucinations.html">
+
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com; object-src 'none';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=(), payment=()">
+
+    <!-- Security Check (Must load first) -->
+    <script src="../js/security-challenge.js"></script>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://krpithadia.com/blog/ai-hallucinations.html">
+    <meta property="og:title" content="AI Hallucinations: A funny (and scary) look at why models still lie to us">
+    <meta property="og:description"
+        content="Explore the phenomenon of AI hallucinations, why models generate false information with confidence, and the real-world consequences in healthcare, aviation, and translation.">
+    <meta property="og:image" content="https://krpithadia.com/assets/images/ai-hallucinations-hero.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://krpithadia.com/blog/ai-hallucinations.html">
+    <meta name="twitter:title" content="AI Hallucinations: A funny (and scary) look at why models still lie to us">
+    <meta name="twitter:description"
+        content="Explore the phenomenon of AI hallucinations, why models generate false information with confidence, and the real-world consequences in healthcare, aviation, and translation.">
+    <meta name="twitter:image" content="https://krpithadia.com/assets/images/ai-hallucinations-hero.png">
+
+    <!-- Additional SEO -->
+    <meta name="keywords"
+        content="AI Hallucinations, Artificial Intelligence, Machine Learning, AI Ethics, Healthcare AI, Data Quality, Generative AI, Kaushal Pithadia">
+    <meta name="author" content="Kaushal R. Pithadia">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- JSON-LD Structured Data (BlogPosting for SEO + AI) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AI Hallucinations: A funny (and scary) look at why models still lie to us",
+      "description": "Explore the phenomenon of AI hallucinations, why models generate false information with confidence, and the real-world consequences in healthcare, aviation, and translation.",
+      "image": "https://krpithadia.com/assets/images/ai-hallucinations-hero.png",
+      "url": "https://krpithadia.com/blog/ai-hallucinations.html",
+      "datePublished": "2026-05-27",
+      "dateModified": "2026-05-27",
+      "author": {
+        "@type": "Person",
+        "name": "Kaushal R. Pithadia",
+        "url": "https://krpithadia.com"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Kaushal R. Pithadia",
+        "url": "https://krpithadia.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://krpithadia.com/blog/ai-hallucinations.html"
+      },
+      "keywords": "AI Hallucinations, Artificial Intelligence, AI Ethics, Healthcare AI, Data Quality",
+      "articleSection": "Technology & Innovation"
+    }
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="logo">Kaushal Pithadia</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#education">Education</a></li>
+                    <li><a href="../index.html#certifications">Certifications</a></li>
+                    <li><a href="../blogs.html">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article class="section blog-detail">
+            <div class="container">
+                <a href="../blogs.html" class="back-link">&larr; Back to Blog Library</a>
+                <header class="blog-header">
+                    <span class="blog-date">May 27, 2026</span>
+                    <h1>AI Hallucinations: A funny (and scary) look at why models still lie to us.</h1>
+                    <p class="blog-subtitle">Why do algorithms so confidently generate false information, and what does it mean for our trust in the machine?</p>
+                </header>
+
+                <div class="blog-hero-image fade-in">
+                    <img src="../assets/images/ai-hallucinations-hero.png"
+                        alt="A sleek AI robot confidently projecting a completely absurd, surreal hologram to a surprised human analyst, symbolizing AI hallucinations."
+                        class="featured-image">
+                    <p class="image-caption">AI models can confidently assert completely fabricated information, a phenomenon known as 'hallucination'.</p>
+                </div>
+
+                <div class="blog-body">
+                    <p>AI hallucinations are a phenomenon where models generate false or misleading information, often with convincing confidence. According to reports, AI hallucinations can occur in various forms, such as fabricating text or images, and can have significant consequences for real-world applications. For instance, a healthcare AI model might incorrectly identify a benign skin lesion as cancerous, leading to unnecessary treatment and distress for the patient.</p>
+
+                    <h2>The Far-Reaching Consequences</h2>
+                    <p>Another example of AI hallucinations is in language translation, where models may generate translations that are not only inaccurate but also nonsensical. This can lead to confusion, miscommunication, and even safety risks in critical domains such as aviation or medicine. 🚨</p>
+
+                    <h2>Why Do AI Models Lie?</h2>
+                    <p>Researchers have identified several reasons why AI models lie, including the model's chain of thought, where the model's internal workings are not transparent, making it difficult to identify the source of the hallucination. Additionally, AI models may be trained on biased or incomplete data, which can perpetuate existing social and cultural biases. 🧠</p>
+
+                    <h2>Mitigating the Risks</h2>
+                    <p>To mitigate the risks of AI hallucinations, it is essential to develop more transparent and explainable AI models, as well as to implement robust testing and validation procedures to detect and correct hallucinations. Furthermore, AI developers must prioritize data quality and diversity to ensure that models are trained on representative and unbiased data. 📊</p>
+
+                    <p>In conclusion, AI hallucinations are a pressing concern that requires immediate attention from AI developers, researchers, and regulators. By understanding the causes and consequences of AI hallucinations, we can work towards developing more reliable and trustworthy AI systems that prioritize accuracy, transparency, and fairness.</p>
+
+                    <div class="interactive-reflection fade-in">
+                        <button id="reveal-reflection" class="btn btn-secondary">Share Your Thoughts</button>
+                        <div id="reflection-content" class="reflection-box hidden">
+                            <h3>A Moment to Reflect</h3>
+                            <p>What steps do you think should be taken to increase transparency in AI decision-making?</p>
+                            <label for="reflection-input">Your thought:</label>
+                            <textarea id="reflection-input" placeholder="Type your reflection here..."></textarea>
+                            <button id="submit-reflection" class="btn btn-primary">Save Reflection</button>
+                            <p id="saved-msg" class="hidden">Thank you for sharing your perspective! ✨</p>
+                        </div>
+                    </div>
+
+                    <div class="related-posts fade-in">
+                        <h3>Related Articles</h3>
+                        <div class="related-grid">
+                            <a href="black-box-problem.html" class="related-card">
+                                <h4>The "Black Box" Problem: Can we ever truly trust AI decision-making?</h4>
+                            </a>
+                            <a href="algo-vs-gut.html" class="related-card">
+                                <h4>Algorithm vs. Gut Instinct: Why intuition still wins in boardrooms</h4>
+                            </a>
+                            <a href="tech-debt-in-the-age-of-speed.html" class="related-card">
+                                <h4>Tech Debt in the Age of Speed: We are building faster, but are we building better?</h4>
+                            </a>
+                            <a href="slms-enterprise-ai.html" class="related-card">
+                                <h4>Small Language Models (SLMs): Why bigger isn't always better for enterprise AI</h4>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="blog-footer-actions fade-in">
+                        <button class="like-button" id="like-post">
+                            <span class="heart">❤</span> <span id="like-count">16</span> Likes
+                        </button>
+                    </div>
+
+                    <div class="blog-tags fade-in">
+                        <span>#AIHallucinations</span> <span>#ArtificialIntelligence</span> <span>#AIEthics</span>
+                        <span>#DataQuality</span> <span>#Transparency</span>
+                        <span>#KaushalWrites</span> <span>#KaushalPithadia</span>
+                    </div>
+
+                    <div class="blog-sources fade-in">
+                        <h3>Sources</h3>
+                        <ol>
+                            <li><a href="https://research.ibm.com/blog/what-are-ai-hallucinations" target="_blank" rel="noopener noreferrer">"What are AI hallucinations?" - IBM Research</a></li>
+                            <li><a href="https://harvardpublichealth.org/health-tech/when-healthcare-ai-hallucinates/" target="_blank" rel="noopener noreferrer">"When healthcare AI hallucinates" - Harvard Public Health</a></li>
+                            <li><a href="https://www.gartner.com/en/newsroom/press-releases/2023-08-01-gartner-identifies-top-10-strategic-technology-trends-for-2024" target="_blank" rel="noopener noreferrer">"Mitigating AI Hallucinations and Trust, Risk, and Security Management" - Gartner</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Kaushal R. Pithadia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/cookie-consent.js"></script>
+    <script src="../js/blog-interactions.js"></script>
+</body>
+
+</html>
